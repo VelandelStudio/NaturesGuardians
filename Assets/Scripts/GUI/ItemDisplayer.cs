@@ -17,7 +17,6 @@ public abstract class ItemDisplayer : ToucheableElement
     {
         chevron.SetActive(false);
         descriptionPanel.SetActive(false);
-        transform.parent.gameObject.SetActive(false);
     }
 
     public override void ActionOnTouch()
@@ -45,6 +44,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = true;
         chevron.SetActive(true);
         description.text = GetDescription();
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(GameObjectToInvoke);
         descriptionPanel.SetActive(true);
     }
 
@@ -53,6 +53,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = false;
         chevron.SetActive(false);
         description.text = "";
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(null);
         descriptionPanel.SetActive(false);
     }
 
