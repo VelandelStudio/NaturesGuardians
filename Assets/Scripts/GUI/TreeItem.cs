@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : ItemDisplayer
+public class TreeItem: ItemDisplayer
 {
     protected override string GetDescription()
     {
