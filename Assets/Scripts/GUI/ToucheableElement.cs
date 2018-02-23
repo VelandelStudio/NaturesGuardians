@@ -4,6 +4,5 @@ using UnityEngine;
 
 public abstract class ToucheableElement : MonoBehaviour {
 
-
     public abstract void ActionOnTouch();
 }

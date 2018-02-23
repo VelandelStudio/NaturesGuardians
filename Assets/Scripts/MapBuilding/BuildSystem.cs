@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildSystem : MonoBehaviour {
+public class BuildSystem : ToucheableElement {
 
     private GameObject naturalElement;
+    private GameObject NaturalElementInstance;
+
     private bool isBuildable;
 
     private void Start()
@@ -17,16 +19,25 @@ public class BuildSystem : MonoBehaviour {
         if (isBuildable)
         {
             Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            Instantiate(naturalElement, naturalPlace, Quaternion.identity, transform);
-            naturalElement = GetComponent<GameObject>();
+            NaturalElementInstance = Instantiate(naturalElement, naturalPlace, Quaternion.identity, transform);
             isBuildable = false;
+
+            Debug.Log(NaturalElementInstance.name + " is placed");
         }
     }
 
     public void RemoveNaturalElemt()
     {
-        Destroy(naturalElement);
-
+        Destroy(NaturalElementInstance);
         isBuildable = true;
+    }
+
+    public override void ActionOnTouch()
+    {
+        if (GameManagement.instance.ObjToCreate)
+        {
+            naturalElement = GameManagement.instance.ObjToCreate;
+            TryPlaceNaturalElem(naturalElement);
+        }
     }
 }
