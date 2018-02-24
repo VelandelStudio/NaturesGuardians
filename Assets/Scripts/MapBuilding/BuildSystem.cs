@@ -20,7 +20,7 @@ public class BuildSystem : ToucheableElement {
         {
             bool isMaxHeigth = transform.position.y < GameManagement.instance.GridCreator.heigth;
 
-            return !GameManagement.instance.InsideMenus && isBuildable && isMaxHeigth;
+            return !GameManagement.instance.InsideMenus && isBuildable && isMaxHeigth && !NaturalElementInstance;
         }
 
         set { isBuildable = value; }
@@ -34,14 +34,16 @@ public class BuildSystem : ToucheableElement {
 
     public void TryPlaceNaturalElem(GameObject naturalElem)
     {
-            Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + naturalElem.transform.lossyScale.y /2.0f , transform.position.z);
-            NaturalElementInstance = Instantiate(naturalElem, naturalPlace, Quaternion.identity, transform);
-            IsBuildable = false;
+        Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + naturalElem.transform.lossyScale.y /2.0f , transform.position.z);
+        NaturalElementInstance = Instantiate(naturalElem, naturalPlace, Quaternion.identity, transform);
+        IsBuildable = false;
 
-            Debug.Log(NaturalElementInstance.name + " is placed");
-            Debug.Log(GameManagement.instance.NatureEvolution);
+        GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
 
-            GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
+        if (NaturalElementInstance.GetComponentInChildren<BuildSystem>())
+        {
+            GameManagement.instance.GridCreator.AddNewBuildSystem(NaturalElementInstance.transform);
+        }
     }
 
     public void RemoveNaturalElemt()
@@ -54,6 +56,8 @@ public class BuildSystem : ToucheableElement {
         }
         else
         {
+            transform.parent.GetComponent<BuildSystem>().NaturalElementInstance = null;
+
             Destroy(gameObject);
         }
 
