@@ -1030,6 +1030,8 @@ MonoBehaviour:
   GameObjectToInvoke: {fileID: 1902411875032400, guid: 5be059ff6c8c588408af4d782584eddf,
     type: 2}
   IsActivated: 0
+  TypeCost: 
+  nbCost: 0
 --- !u!114 &114065911756504864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1328,6 +1330,8 @@ MonoBehaviour:
   descriptionPanel: {fileID: 1054116527978532}
   GameObjectToInvoke: {fileID: 100000, guid: 197e3266f29fac643a302c158b8811ba, type: 2}
   IsActivated: 0
+  TypeCost: 
+  nbCost: 0
 --- !u!114 &114174155519331276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2156,6 +2160,8 @@ MonoBehaviour:
   GameObjectToInvoke: {fileID: 1046380808827930, guid: 080237dc6001d6347990c1e7c79e4543,
     type: 2}
   IsActivated: 0
+  TypeCost: 
+  nbCost: 0
 --- !u!114 &114523093753296564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2241,6 +2247,8 @@ MonoBehaviour:
   GameObjectToInvoke: {fileID: 1669139347309142, guid: 9cbd61b9fc3fb6c46900103c4b01666c,
     type: 2}
   IsActivated: 0
+  TypeCost: 
+  nbCost: 0
 --- !u!114 &114530082107758338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2821,6 +2829,8 @@ MonoBehaviour:
   GameObjectToInvoke: {fileID: 1005474799092082, guid: ff8ef0bafecb0d44e987aaf1d84e95c8,
     type: 2}
   IsActivated: 0
+  TypeCost: 
+  nbCost: 0
 --- !u!114 &114799987063102718
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -36,8 +36,8 @@ public class FoxBehaviour : MonoBehaviour {
     public void Move()
     {
         moveSpeed = UnityEngine.Random.Range(0f, 1f);
-        Vector3 newPosition = UnityEngine.Random.insideUnitCircle.normalized * 10;
-        nextDestination = transform.position + newPosition;
+        Vector3 newPosition = UnityEngine.Random.insideUnitCircle.normalized * 3;
+        nextDestination = new Vector3(transform.position.x + newPosition.x, transform.position.y, transform.position.z + newPosition.y)  ;
         anim.SetFloat("MoveSpeed", moveSpeed);
         anim.SetBool("Moving", true);
         navAgent.SetDestination(nextDestination);
