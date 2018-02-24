@@ -11,7 +11,7 @@ public class TouchInputTest : MonoBehaviour {
         //    if (Input.GetTouch(i).phase == TouchPhase.Began)
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Hello penis touch");
+            //Debug.Log("Hello penis touch");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo))

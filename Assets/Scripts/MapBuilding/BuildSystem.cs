@@ -39,6 +39,10 @@ public class BuildSystem : ToucheableElement {
         IsBuildable = false;
 
         GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
+        if(NaturalElementInstance.GetComponent<RessourcesConsummer>())
+        {
+            GameManagement.instance.RemoveResources(NaturalElementInstance.GetComponent<RessourcesConsummer>());
+        }
 
         if (NaturalElementInstance.GetComponentInChildren<BuildSystem>())
         {

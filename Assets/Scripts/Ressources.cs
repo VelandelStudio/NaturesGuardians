@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public abstract class Ressources : MonoBehaviour {
 
     [SerializeField] protected Text numberOfElement;
-    protected int number;
+    public int number;
 
     public abstract void AddSeed(int i);
     public abstract bool RemoveSeed(int i);

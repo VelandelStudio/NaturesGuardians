@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 222197646979358546}
   - component: {fileID: 114633380293088436}
   - component: {fileID: 114934632661347462}
-  - component: {fileID: 114529347623111728}
+  - component: {fileID: 114904401538921646}
   m_Layer: 5
   m_Name: WedgeButton
   m_TagString: Untagged
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 222552987349052842}
   - component: {fileID: 114901346840129294}
   - component: {fileID: 114285043885544730}
-  - component: {fileID: 114049988283544664}
+  - component: {fileID: 114671327260230204}
   m_Layer: 5
   m_Name: GroundTile
   m_TagString: Untagged
@@ -1013,23 +1013,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
---- !u!114 &114049988283544664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1977776264614592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4551dc1956f3c0e4d848e88c270e6f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chevron: {fileID: 1274177308960846}
-  description: {fileID: 114999106877258792}
-  descriptionPanel: {fileID: 1316984165662658}
-  GameObjectToInvoke: {fileID: 1902411875032400, guid: 5be059ff6c8c588408af4d782584eddf,
-    type: 2}
-  IsActivated: 0
 --- !u!114 &114065911756504864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1312,6 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfElement: {fileID: 114223914321783082}
+  number: 5
 --- !u!114 &114169754462507428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1734,7 +1718,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114049988283544664}
+      - m_Target: {fileID: 114671327260230204}
         m_MethodName: ActionOnTouch
         m_Mode: 1
         m_Arguments:
@@ -2224,23 +2208,6 @@ MonoBehaviour:
   RotateLeftButton: {fileID: 114414034582646214}
   RotateAroundButton: {fileID: 114523093753296564}
   RemoveButton: {fileID: 114751956183123976}
---- !u!114 &114529347623111728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1055525812969182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97fbca993c00e4c4ea4e0b40bb380fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chevron: {fileID: 1534470363865216}
-  description: {fileID: 114999106877258792}
-  descriptionPanel: {fileID: 1316984165662658}
-  GameObjectToInvoke: {fileID: 1669139347309142, guid: 9cbd61b9fc3fb6c46900103c4b01666c,
-    type: 2}
-  IsActivated: 0
 --- !u!114 &114530082107758338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2552,6 +2519,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114671327260230204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977776264614592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3942507d2892e2042bd8dd1e58b3b896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chevron: {fileID: 1274177308960846}
+  description: {fileID: 114999106877258792}
+  descriptionPanel: {fileID: 1316984165662658}
+  GameObjectToInvoke: {fileID: 1902411875032400, guid: 5be059ff6c8c588408af4d782584eddf,
+    type: 2}
+  IsActivated: 0
 --- !u!114 &114678441063939444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3170,6 +3154,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114904401538921646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055525812969182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44996cb1d95a84b43a3c4874f7f57feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chevron: {fileID: 1534470363865216}
+  description: {fileID: 114999106877258792}
+  descriptionPanel: {fileID: 1316984165662658}
+  GameObjectToInvoke: {fileID: 1669139347309142, guid: 9cbd61b9fc3fb6c46900103c4b01666c,
+    type: 2}
+  IsActivated: 0
 --- !u!114 &114905555030610854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3284,7 +3285,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114529347623111728}
+      - m_Target: {fileID: 114904401538921646}
         m_MethodName: ActionOnTouch
         m_Mode: 1
         m_Arguments:

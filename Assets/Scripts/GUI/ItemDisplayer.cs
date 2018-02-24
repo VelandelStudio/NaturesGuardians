@@ -10,13 +10,15 @@ public abstract class ItemDisplayer : ToucheableElement
     [SerializeField] protected Text description;
     [SerializeField] protected GameObject descriptionPanel;
     [SerializeField] protected GameObject GameObjectToInvoke;
+    protected Button ItemButton;
 
+    protected RessourcesConsummer RessourcesConsummer;
     public bool IsActivated = false;
-    public string TypeCost;
-    public int nbCost;
 
     protected void Start()
     {
+        ItemButton = GetComponent<Button>();
+        RessourcesConsummer = GameObjectToInvoke.GetComponent<RessourcesConsummer>();
         chevron.SetActive(false);
         descriptionPanel.SetActive(false);
     }
@@ -33,6 +35,11 @@ public abstract class ItemDisplayer : ToucheableElement
         }
     }
 
+    protected void Update()
+    {
+        ItemButton.interactable = !RessourcesConsummer || GameManagement.instance.HasEnoughResources(RessourcesConsummer);
+    }
+
     protected void EnableItem()
     {
         ItemDisplayer[] itemDisplayers = transform.parent.GetComponentsInChildren<ItemDisplayer>();
@@ -46,7 +53,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = true;
         chevron.SetActive(true);
         description.text = GetDescription();
-        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(GameObjectToInvoke,nbCost, TypeCost);
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(GameObjectToInvoke);
         descriptionPanel.SetActive(true);
     }
 
@@ -55,7 +62,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = false;
         chevron.SetActive(false);
         description.text = "";
-        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(null,0,"");
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(null);
         descriptionPanel.SetActive(false);
     }
 
