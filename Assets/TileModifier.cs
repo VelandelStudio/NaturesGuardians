@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class TileModifier : MonoBehaviour
 {
-    public GameObject TileModifierPanel;
+    public TileModifierPanel TileModifierPanel;
     private void Start()
     {
         GameObject Canvas = GameObject.Find("Canvas");
-        Transform[] trs = Canvas.GetComponentsInChildren<Transform>(true);
-        for(int i = 0; i < trs.Length; i++)
-        {
-            if (trs[i].name == "TileModifierPanel")
-            {
-                TileModifierPanel = trs[i].gameObject;
-            }
-        }
+        TileModifierPanel[] modifiers = Canvas.GetComponentsInChildren<TileModifierPanel>(true);
+        TileModifierPanel = modifiers[0];
+        DisableDisplayer();
     }
 
-    public void DisplayTileModifier()
+    public void DisplayTileModifier(BuildSystem system)
     {
-        TileModifierPanel.SetActive(true);
+        Debug.Log("hello");
+        TileModifierPanel.gameObject.SetActive(true);
+        TileModifierPanel.EnablePanel(system);
     }
 
     public void DisableDisplayer()
     {
-        TileModifierPanel.SetActive(false);
+        TileModifierPanel.DisablePanel();
     }
 }

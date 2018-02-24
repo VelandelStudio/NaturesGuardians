@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 114490440595905388}
   - component: {fileID: 114414034582646214}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: RotateLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 114101864119891284}
   - component: {fileID: 114751956183123976}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Remove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 114106478618875372}
   - component: {fileID: 114523093753296564}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Rotate180
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 114867591289521102}
   - component: {fileID: 114007726154042280}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: RotateRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

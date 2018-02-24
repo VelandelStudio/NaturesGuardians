@@ -5,7 +5,12 @@ using UnityEngine;
 public class BuildSystem : ToucheableElement {
 
     private GameObject naturalElement;
-    private GameObject NaturalElementInstance;
+    private GameObject naturalElementInstance;
+    public GameObject NaturalElementInstance
+    {
+        get; private set;
+    }
+
     private TileModifier tileModifier;
 
     private bool isBuildable;
@@ -45,9 +50,9 @@ public class BuildSystem : ToucheableElement {
 
         if(!isBuildable && !GameManagement.instance.InsideMenus)
         {
-            if (!tileModifier.TileModifierPanel.activeSelf)
+            if (!tileModifier.TileModifierPanel.gameObject.activeSelf)
             {
-                tileModifier.DisplayTileModifier();
+                tileModifier.DisplayTileModifier(this);
             }
         }
 

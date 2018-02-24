@@ -153,4 +153,4 @@ MonoBehaviour:
   width: 30
   heigth: 10
   grid: []
-  groundTile: {fileID: 4696289429409152, guid: 5be059ff6c8c588408af4d782584eddf, type: 2}
+  groundTile: {fileID: 4291653424352956, guid: 5be059ff6c8c588408af4d782584eddf, type: 2}
