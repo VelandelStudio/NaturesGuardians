@@ -9,33 +9,60 @@ public class NatureEvolution : MonoBehaviour {
     private int rocks;
     private int bushes;
 
-    public void AddTree()
+    private void Update()
     {
-        trees++;
+        if (trees > 10 && rocks > 5 && bushes > 5)
+        {
+            AnimalPop();
+        }
     }
 
-    public void AddRocks()
+    #region addRemove
+
+    public void AddNatureElem(GameObject nature)
     {
-        rocks++;
+        if (nature.tag == "Tree")
+        {
+            trees++;
+        }
+
+        if (nature.tag == "Rock")
+        {
+            rocks++;
+        }
+
+        if (nature.tag == "Bush")
+        {
+            bushes++;
+        }
     }
 
-    public void AddBushes()
+    public void RemoveNatureElem(GameObject nature)
     {
-        bushes++;
+        if (nature.tag == "Tree")
+        {
+            trees--;
+        }
+
+        if (nature.tag == "Rock")
+        {
+            rocks--;
+        }
+
+        if (nature.tag == "bush")
+        {
+            bushes--;
+        }
     }
 
-    public void RemoveTree()
+    #endregion
+
+    #region Events
+
+    public void AnimalPop()
     {
-        trees--;
+        Debug.Log("Possible animal spaw");
     }
 
-    public void RemoveRocks()
-    {
-        rocks--;
-    }
-
-    public void RemoveBushes()
-    {
-        bushes--;
-    }
+    #endregion
 }

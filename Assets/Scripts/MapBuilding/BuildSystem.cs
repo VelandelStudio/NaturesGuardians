@@ -28,11 +28,15 @@ public class BuildSystem : ToucheableElement {
             IsBuildable = false;
 
             Debug.Log(NaturalElementInstance.name + " is placed");
+            Debug.Log(GameManagement.instance.NatureEvolution);
+
+            GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
         }
     }
 
     public void RemoveNaturalElemt()
     {
+        GameManagement.instance.NatureEvolution.RemoveNatureElem(NaturalElementInstance);
         Destroy(NaturalElementInstance);
         IsBuildable = true;
     }
