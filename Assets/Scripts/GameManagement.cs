@@ -6,6 +6,12 @@ public class GameManagement : MonoBehaviour {
 
     public static GameManagement instance = null;
 
+    private NatureEvolution natureEvolution;
+    public NatureEvolution NatureEvolution
+    {
+        get { return natureEvolution; }
+    }
+
     private GameObject objToCreate;
     public GameObject ObjToCreate
     {
@@ -32,5 +38,10 @@ public class GameManagement : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        natureEvolution = GetComponent<NatureEvolution>();
     }
 }
