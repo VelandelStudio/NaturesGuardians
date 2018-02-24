@@ -79,10 +79,12 @@ public class GridCreator : MonoBehaviour {
 
     public void AddNewBuildSystem(Transform tileToInstance)
     {
+        //Debug.Log(GetTransformOnGrid(tileToInstance.position).position.x + ", " + GetTransformOnGrid(tileToInstance.position).position.y + ", " + GetTransformOnGrid(tileToInstance.position).position.z);
+
         Transform tr = GetTransformOnGrid(tileToInstance.position);
         tr = tileToInstance;
 
-        Debug.Log(tr.position.x + ", " + tr.position.y + ", " + tr.position.z);
+        //Debug.Log(GetTransformOnGrid(tileToInstance.position).position.x + ", " + GetTransformOnGrid(tileToInstance.position).position.y + ", " + GetTransformOnGrid(tileToInstance.position).position.z);
     }
 
     public void RemoveNewBuildSystem(Transform tileClicked)
@@ -90,6 +92,6 @@ public class GridCreator : MonoBehaviour {
         Transform tr = GetTransformOnGrid(tileClicked.position);
         tr = null;
 
-        Debug.Log(GetTransformOnGrid(tileClicked.position));
+        //Debug.Log(GetTransformOnGrid(tileClicked.position));
     }
 }

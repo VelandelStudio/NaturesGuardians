@@ -26,8 +26,6 @@ public class GameManagement : MonoBehaviour {
         get { return objToCreate; }
         set { objToCreate = value; }
     }
-    public string TypeCost;
-    public int nbCost;
 
     private bool insideMenus = false;
     public bool InsideMenus
@@ -56,40 +54,49 @@ public class GameManagement : MonoBehaviour {
         gridCreator = GetComponentInChildren<GridCreator>();
         GameObject Canvas = GameObject.Find("Canvas");
         ressources = Canvas.GetComponentsInChildren<Ressources>();
-        TypeCost = "Seed";
-        nbCost = 5;
-        AddResources();
-        nbCost = 0;
     }
 
-    public void AddResources()
+    public void AddResources(RessourcesProvider provider)
     {
-        if(TypeCost == "Seed")
+        if(provider.TypeCost == "Seed")
         {
             for (int i = 0; i < ressources.Length; i++)
             {
                 if(ressources[i] is SeedsGUI)
                 {
-                    Debug.Log("Hello");
-                    ressources[i].AddSeed(nbCost);
+                    ressources[i].AddSeed(provider.ValueCost);
                 }
             }
         }
     }
 
-    public bool RemoveResources()
+    public bool HasEnoughResources(RessourcesConsummer consummer)
     {
-        if (TypeCost == "Seed")
+        if (consummer.TypeCost == "Seed")
         {
             for (int i = 0; i < ressources.Length; i++)
             {
                 if (ressources[i] is SeedsGUI)
                 {
-                   return ressources[i].RemoveSeed(nbCost);
+                   return ressources[i].number >=  consummer.ValueCost;
                 }
             }
         }
 
         return true;
+    }
+
+    public void RemoveResources(RessourcesConsummer consummer)
+    {
+        if (consummer.TypeCost == "Seed")
+        {
+            for (int i = 0; i < ressources.Length; i++)
+            {
+                if (ressources[i] is SeedsGUI)
+                {
+                   ressources[i].RemoveSeed(consummer.ValueCost);
+                }
+            }
+        }
     }
 }

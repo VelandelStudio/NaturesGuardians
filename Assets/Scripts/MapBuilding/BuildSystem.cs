@@ -20,7 +20,7 @@ public class BuildSystem : ToucheableElement {
         {
             bool isMaxHeigth = transform.position.y < GameManagement.instance.GridCreator.heigth;
 
-            return !GameManagement.instance.InsideMenus && isBuildable && isMaxHeigth && !NaturalElementInstance;
+            return !GameManagement.instance.InsideMenus && isBuildable && isMaxHeigth;
         }
 
         set { isBuildable = value; }
@@ -39,6 +39,10 @@ public class BuildSystem : ToucheableElement {
         IsBuildable = false;
 
         GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
+        if(NaturalElementInstance.GetComponent<RessourcesConsummer>())
+        {
+            GameManagement.instance.RemoveResources(NaturalElementInstance.GetComponent<RessourcesConsummer>());
+        }
 
         if (NaturalElementInstance.GetComponentInChildren<BuildSystem>())
         {
@@ -56,8 +60,8 @@ public class BuildSystem : ToucheableElement {
         }
         else
         {
-            transform.parent.GetComponent<BuildSystem>().NaturalElementInstance = null;
-
+            transform.parent.GetComponentInParent<BuildSystem>().IsBuildable = true;
+            GameManagement.instance.GridCreator.RemoveNewBuildSystem(transform);
             Destroy(gameObject);
         }
 

@@ -18,10 +18,7 @@ public class MagicSeed : ToucheableElement {
 
     public override void ActionOnTouch()
     {
-        GameManagement.instance.nbCost = 1;
-        GameManagement.instance.TypeCost = "Seed";
-
-        GameManagement.instance.AddResources();
+        GameManagement.instance.AddResources(GetComponent<RessourcesProvider>());
         DestroyELement();
     }
 }

@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4179613265105084}
   - component: {fileID: 205975753547328184}
+  - component: {fileID: 114456605635759354}
   m_Layer: 0
   m_Name: spruce
   m_TagString: Tree
@@ -184,6 +185,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001173221928100}
   m_Mesh: {fileID: 4300000, guid: 5afd757c9728ed54fb32966e50703b11, type: 3}
+--- !u!114 &114456605635759354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005474799092082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2063517f5a2cc0e4ab854763faee5133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TypeCost: Seed
+  ValueCost: 5
 --- !u!205 &205975753547328184
 LODGroup:
   m_ObjectHideFlags: 1
