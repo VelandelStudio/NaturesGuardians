@@ -9,6 +9,9 @@ public class BiomeEvents : MonoBehaviour {
 
     UnityEvent animalPop;
     UnityEvent fireBurn;
+    UnityEvent seedPop;
+
+    private bool seedPopLaunched;
 
     private void Start()
     {
@@ -25,6 +28,12 @@ public class BiomeEvents : MonoBehaviour {
             fireBurn = new UnityEvent();
             fireBurn.AddListener(FireStart);
         }
+
+        if (seedPop == null)
+        {
+            seedPop = new UnityEvent();
+            seedPop.AddListener(SeedPop);
+        }
     }
 
     private void Update()
@@ -39,6 +48,10 @@ public class BiomeEvents : MonoBehaviour {
             fireBurn.Invoke();
         }
 
+        if (natureEvolution.eventCondition[2] && seedPop != null && !seedPopLaunched)
+        {
+            seedPop.Invoke();
+        }
     }
 
     void AnimalSpawning()
@@ -49,5 +62,17 @@ public class BiomeEvents : MonoBehaviour {
     void FireStart()
     {
         Debug.Log("A fire has start to Burn trees");
+    }
+
+    void SeedPop()
+    {
+        seedPopLaunched = true;
+        InvokeRepeating("MakeASeedPop", 0f, 30f);
+    }
+
+    private void MakeASeedPop()
+    {
+        GameObject seed =(GameObject) Resources.Load("MagicSeed");
+        Instantiate(seed, new Vector3(10, 1, 10), Quaternion.identity);
     }
 }

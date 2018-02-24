@@ -50,6 +50,5 @@ public class TileModifierPanel : MonoBehaviour {
         RotateLeftButton.interactable = workingObject && (!workingObject.IsBuildable && workingObject.NaturalElementInstance);
         RotateAroundButton.interactable = workingObject && (!workingObject.IsBuildable && workingObject.NaturalElementInstance);
         RemoveButton.interactable = workingObject && (workingObject.IsBuildable || workingObject.NaturalElementInstance);
-        Debug.Log(workingObject);
     }
 }

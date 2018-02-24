@@ -14,23 +14,9 @@ public class NatureEvolution : MonoBehaviour {
 
     private void Update()
     {
-        if (trees >= 5)
-        {
-            eventCondition[0] = true;
-
-            if (trees >= 20)
-            {
-                eventCondition[1] = true;
-            }
-            else
-            {
-                eventCondition[1] = false;
-            }
-        }
-        else
-        {
-            eventCondition[0] = false;
-        }
+        eventCondition[0] = trees >= 5;
+        eventCondition[1] = trees >= 20;
+        eventCondition[2] = trees > 0;         
     }
 
     #region addRemove
