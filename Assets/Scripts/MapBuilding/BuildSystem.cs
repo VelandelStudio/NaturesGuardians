@@ -60,7 +60,7 @@ public class BuildSystem : ToucheableElement {
     {
         GameManagement.instance.NatureEvolution.RemoveNatureElem(NaturalElementInstance);
         Destroy(NaturalElementInstance);
-        IsBuildable = true;
+        isBuildable = true;
     }
 
     public override void ActionOnTouch()
