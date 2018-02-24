@@ -17,5 +17,6 @@ public abstract class MenusBuildersDisplayer : ToucheableElement {
             }
         }
         associatedMenus.SetActive(!associatedMenus.activeSelf);
+        GameManagement.instance.InsideMenus = (associatedMenus.activeSelf);
     }
 }

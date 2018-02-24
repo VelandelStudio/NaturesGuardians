@@ -18,4 +18,9 @@ public class CreationItemButton : ToucheableElement
         objectToCreate = obj;
     }
 
+    public void Update()
+    {
+        Debug.Log(GameManagement.instance.InsideMenus);
+    }
+
 }
