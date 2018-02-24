@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GridCreator : MonoBehaviour {
 
-    public int length = 20;
-    public int width = 30;
-    public int heigth = 10;
+    public int length = 3;
+    public int width = 3;
+    public int heigth = 3;
 
     private string holderName = "GeneratedGrid";
     private Transform Biome;
 
-    public List<Transform> zGrid = new List<Transform>();
-    public List<List<Transform>> xGrid = new List<List<Transform>>();
-    public List<List<List<Transform>>> yGrid = new List<List<List<Transform>>>();
+    [HideInInspector] public List<Transform> zGrid = new List<Transform>();
+    [HideInInspector] public List<List<Transform>> xGrid = new List<List<Transform>>();
+    [HideInInspector] public List<List<List<Transform>>> yGrid = new List<List<List<Transform>>>();
 
     public Transform groundTile;
 
@@ -81,11 +81,15 @@ public class GridCreator : MonoBehaviour {
     {
         Transform tr = GetTransformOnGrid(tileToInstance.position);
         tr = tileToInstance;
+
+        Debug.Log(tr.position.x + ", " + tr.position.y + ", " + tr.position.z);
     }
 
     public void RemoveNewBuildSystem(Transform tileClicked)
     {
         Transform tr = GetTransformOnGrid(tileClicked.position);
         tr = null;
+
+        Debug.Log(GetTransformOnGrid(tileClicked.position));
     }
 }
