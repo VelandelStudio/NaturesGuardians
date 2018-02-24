@@ -6,6 +6,7 @@ public class BuildSystem : ToucheableElement {
 
     private GameObject naturalElement;
     private GameObject NaturalElementInstance;
+    private TileModifier tileModifier;
 
     private bool isBuildable;
     public bool IsBuildable
@@ -23,12 +24,14 @@ public class BuildSystem : ToucheableElement {
     private void Start()
     {
         IsBuildable = true;
+        tileModifier = GetComponent<TileModifier>();
     }
 
     public void TryPlaceNaturalElem(GameObject naturalElem)
     {
         if (IsBuildable)
         {
+            tileModifier.DisableDisplayer();
             Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + naturalElem.transform.lossyScale.y /2.0f , transform.position.z);
             NaturalElementInstance = Instantiate(naturalElement, naturalPlace, Quaternion.identity, transform);
             IsBuildable = false;
@@ -37,6 +40,15 @@ public class BuildSystem : ToucheableElement {
             Debug.Log(GameManagement.instance.NatureEvolution);
 
             GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
+            return;
+        }
+
+        if(!isBuildable && !GameManagement.instance.InsideMenus)
+        {
+            if (!tileModifier.TileModifierPanel.activeSelf)
+            {
+                tileModifier.DisplayTileModifier();
+            }
         }
 
         Debug.Log(transform.position.y);
