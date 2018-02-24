@@ -6,6 +6,12 @@ public class GameManagement : MonoBehaviour {
 
     public static GameManagement instance = null;
 
+    private GridCreator gridCreator;
+    public GridCreator GridCreator
+    {
+        get { return gridCreator; }
+    }
+
     private NatureEvolution natureEvolution;
     public NatureEvolution NatureEvolution
     {
@@ -43,5 +49,6 @@ public class GameManagement : MonoBehaviour {
     private void Start()
     {
         natureEvolution = GetComponent<NatureEvolution>();
+        gridCreator = GetComponentInChildren<GridCreator>();
     }
 }
