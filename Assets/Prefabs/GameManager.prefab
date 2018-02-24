@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a86568a23a4a740a774e8f270eb15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animal:
+  - {fileID: 1944697686133560, guid: 2de2c620c30e66048922b010910105cb, type: 2}
 --- !u!114 &114805654303770902
 MonoBehaviour:
   m_ObjectHideFlags: 1
