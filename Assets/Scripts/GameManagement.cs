@@ -13,6 +13,13 @@ public class GameManagement : MonoBehaviour {
         set { objToCreate = value; }
     }
 
+    private bool insideMenus = false;
+    public bool InsideMenus
+    {
+        get { return insideMenus; }
+        set { insideMenus = value; }
+    }
+
     void Awake()
     {
         if (instance == null)
