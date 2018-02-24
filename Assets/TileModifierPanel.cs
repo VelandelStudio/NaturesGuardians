@@ -27,6 +27,7 @@ public class TileModifierPanel : MonoBehaviour {
     public void Create()
     {
         workingObject.TryPlaceNaturalElem(GameManagement.instance.ObjToCreate);
+        DisablePanel();
         UpdateButtons();
     }
 
