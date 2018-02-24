@@ -12,11 +12,6 @@ public class NatureEvolution : MonoBehaviour {
     private int rocks;
     private int bushes;
 
-    private void Start()
-    {
-        Debug.Log(eventCondition.Length);
-    }
-
     private void Update()
     {
         if (trees >= 5)
@@ -27,6 +22,14 @@ public class NatureEvolution : MonoBehaviour {
             {
                 eventCondition[1] = true;
             }
+            else
+            {
+                eventCondition[1] = false;
+            }
+        }
+        else
+        {
+            eventCondition[0] = false;
         }
     }
 
