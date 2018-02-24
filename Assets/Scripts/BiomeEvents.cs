@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BiomeEvents : MonoBehaviour {
+
+    int i = 0;
 
     private NatureEvolution natureEvolution;
 
@@ -40,7 +43,8 @@ public class BiomeEvents : MonoBehaviour {
     {
         if (natureEvolution.eventCondition[0] && animalPop != null)
         {
-            animalPop.Invoke();
+            if (i < 2)
+                animalPop.Invoke();
         }
 
         if (natureEvolution.eventCondition[1] && fireBurn != null)
@@ -56,7 +60,15 @@ public class BiomeEvents : MonoBehaviour {
 
     void AnimalSpawning()
     {
+        UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+        float xPos = UnityEngine.Random.Range(1f, (float)GameManagement.instance.GridCreator.length - 1f);
+        float zPos = UnityEngine.Random.Range(1f, (float)GameManagement.instance.GridCreator.width - 1f);
+        Vector3 instacePos = new Vector3(xPos, 1, zPos);
+
+        Instantiate(GameManagement.instance.NatureEvolution.animal[0], instacePos, Quaternion.identity);
         Debug.Log("Fox spawn in game");
+
+        i++;
     }
 
     void FireStart()
@@ -67,7 +79,7 @@ public class BiomeEvents : MonoBehaviour {
     void SeedPop()
     {
         seedPopLaunched = true;
-        InvokeRepeating("MakeASeedPop", 0f, 30f);
+        InvokeRepeating("MakeASeedPop", 0f, 1f);
     }
 
     private void MakeASeedPop()
