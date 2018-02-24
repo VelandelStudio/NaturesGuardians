@@ -44,11 +44,11 @@ public class GameManagement : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+        natureEvolution = GetComponent<NatureEvolution>();
     }
 
     private void Start()
     {
-        natureEvolution = GetComponent<NatureEvolution>();
         gridCreator = GetComponentInChildren<GridCreator>();
     }
 }

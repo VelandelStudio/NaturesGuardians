@@ -6,16 +6,27 @@ using UnityEngine;
 public class NatureEvolution : MonoBehaviour {
 
     public List<GameObject> animal = new List<GameObject>();
+    public bool[] eventCondition = new bool[2];
 
     private int trees;
     private int rocks;
     private int bushes;
 
+    private void Start()
+    {
+        Debug.Log(eventCondition.Length);
+    }
+
     private void Update()
     {
-        if (trees > 10 && rocks > 5 && bushes > 5)
+        if (trees >= 5)
         {
-            AnimalPop();
+            eventCondition[0] = true;
+
+            if (trees >= 20)
+            {
+                eventCondition[1] = true;
+            }
         }
     }
 
@@ -55,16 +66,6 @@ public class NatureEvolution : MonoBehaviour {
         {
             bushes--;
         }
-    }
-
-    #endregion
-
-    #region Events
-
-    public void AnimalPop()
-    {
-        Debug.Log("POP MASSIF");
-        //Instantiate(animal[0], new Vector3(5, 1, 10), Quaternion.identity);
     }
 
     #endregion
