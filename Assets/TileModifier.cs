@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TileModifier : MonoBehaviour
 {
-    public TileModifierPanel TileModifierPanel;
+    private TileModifierPanel TileModifierPanel;
+
     private void Start()
     {
         GameObject Canvas = GameObject.Find("Canvas");
@@ -15,7 +16,6 @@ public class TileModifier : MonoBehaviour
 
     public void DisplayTileModifier(BuildSystem system)
     {
-        Debug.Log("hello");
         TileModifierPanel.gameObject.SetActive(true);
         TileModifierPanel.EnablePanel(system);
     }

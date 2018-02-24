@@ -50,10 +50,7 @@ public class BuildSystem : ToucheableElement {
 
         if(!isBuildable && !GameManagement.instance.InsideMenus)
         {
-            if (!tileModifier.TileModifierPanel.gameObject.activeSelf)
-            {
-                tileModifier.DisplayTileModifier(this);
-            }
+            tileModifier.DisplayTileModifier(this);
         }
 
         Debug.Log(transform.position.y);
