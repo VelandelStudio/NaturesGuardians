@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BuildSystem : ToucheableElement {
 
-    public Material mat;
+    public Material greenMat;
+    public Material snowMat;
 
     private GameObject naturalElement;
+    private float altitude;
+
     private GameObject naturalElementInstance;
     public GameObject NaturalElementInstance
     {
@@ -31,6 +34,7 @@ public class BuildSystem : ToucheableElement {
     private void Start()
     {
         IsBuildable = true;
+        altitude = transform.position.y;
         tileModifier = GetComponent<TileModifier>();
     }
 
@@ -42,11 +46,7 @@ public class BuildSystem : ToucheableElement {
 
         GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
 
-        if (NaturalElementInstance.tag == "Tree")
-        {
-            MeshRenderer mrd = GetComponent<MeshRenderer>();
-            mrd.material = mat;
-        }
+        MatModifier();
 
         if(NaturalElementInstance.GetComponent<RessourcesConsummer>())
         {
@@ -82,6 +82,21 @@ public class BuildSystem : ToucheableElement {
         if (IsBuildable || (!isBuildable && !GameManagement.instance.InsideMenus))
         {
             tileModifier.DisplayTileModifier(this);
+        }
+    }
+
+    public void MatModifier()
+    {
+        MeshRenderer mrd = GetComponent<MeshRenderer>();
+
+        if (NaturalElementInstance.tag == "Tree")
+        {
+            mrd.material = greenMat;
+        }
+
+        if (altitude >= 5)
+        {
+            mrd.material = snowMat;
         }
     }
 }
