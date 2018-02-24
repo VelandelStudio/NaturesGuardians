@@ -18,7 +18,7 @@ public class BuildSystem : ToucheableElement {
     {
         if (isBuildable)
         {
-            Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + naturalElem.transform.lossyScale.y /2.0f , transform.position.z);
             NaturalElementInstance = Instantiate(naturalElement, naturalPlace, Quaternion.identity, transform);
             isBuildable = false;
 
