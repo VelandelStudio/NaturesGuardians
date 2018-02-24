@@ -11,7 +11,13 @@ public class BuildSystem : ToucheableElement {
     private bool isBuildable;
     public bool IsBuildable
     {
-        get { return !GameManagement.instance.InsideMenus && isBuildable; }
+        get
+        {
+            bool isMaxHeigth = transform.position.y < GameManagement.instance.GridCreator.heigth;
+
+            return !GameManagement.instance.InsideMenus && isBuildable && isMaxHeigth;
+        }
+
         set { isBuildable = value; }
     }
 
@@ -44,6 +50,8 @@ public class BuildSystem : ToucheableElement {
                 tileModifier.DisplayTileModifier();
             }
         }
+
+        Debug.Log(transform.position.y);
     }
 
     public void RemoveNaturalElemt()

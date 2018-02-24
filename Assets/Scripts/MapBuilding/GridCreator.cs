@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GridCreator : MonoBehaviour {
 
-    [SerializeField] private int length = 20;
-    [SerializeField] private int width = 30;
-    [SerializeField] private int heigth = 10;
+    public int length = 20;
+    public int width = 30;
+    public int heigth = 10;
 
     private string holderName = "GeneratedGrid";
     private Transform Biome;
