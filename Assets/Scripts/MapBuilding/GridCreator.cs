@@ -58,10 +58,10 @@ public class GridCreator : MonoBehaviour {
         }
     }
 
-    private Transform TilePlacement(int x, int z, Transform roomTransform)
+    private Transform TilePlacement(int x, int z, Transform gTile)
     {
         Vector3 TilePosition = new Vector3(x, 0, z);
-        Transform tile = Instantiate(roomTransform, TilePosition, Quaternion.identity) as Transform;
+        Transform tile = Instantiate(gTile, TilePosition, Quaternion.identity) as Transform;
 
         return tile;
     }
