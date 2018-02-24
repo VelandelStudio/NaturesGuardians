@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildSystem : ToucheableElement {
 
+    public Material mat;
+
     private GameObject naturalElement;
     private GameObject naturalElementInstance;
     public GameObject NaturalElementInstance
@@ -39,6 +41,13 @@ public class BuildSystem : ToucheableElement {
         IsBuildable = false;
 
         GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
+
+        if (NaturalElementInstance.tag == "Tree")
+        {
+            MeshRenderer mrd = GetComponent<MeshRenderer>();
+            mrd.material = mat;
+        }
+
         if(NaturalElementInstance.GetComponent<RessourcesConsummer>())
         {
             GameManagement.instance.RemoveResources(NaturalElementInstance.GetComponent<RessourcesConsummer>());
