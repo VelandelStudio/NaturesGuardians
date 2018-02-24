@@ -6,6 +6,8 @@ public class GameManagement : MonoBehaviour {
 
     public static GameManagement instance = null;
 
+    public Ressources[] ressources;
+
     private GridCreator gridCreator;
     public GridCreator GridCreator
     {
@@ -24,6 +26,8 @@ public class GameManagement : MonoBehaviour {
         get { return objToCreate; }
         set { objToCreate = value; }
     }
+    public string TypeCost;
+    public int nbCost;
 
     private bool insideMenus = false;
     public bool InsideMenus
@@ -50,5 +54,42 @@ public class GameManagement : MonoBehaviour {
     private void Start()
     {
         gridCreator = GetComponentInChildren<GridCreator>();
+        GameObject Canvas = GameObject.Find("Canvas");
+        ressources = Canvas.GetComponentsInChildren<Ressources>();
+        TypeCost = "Seed";
+        nbCost = 5;
+        AddResources();
+        nbCost = 0;
+    }
+
+    public void AddResources()
+    {
+        if(TypeCost == "Seed")
+        {
+            for (int i = 0; i < ressources.Length; i++)
+            {
+                if(ressources[i] is SeedsGUI)
+                {
+                    Debug.Log("Hello");
+                    ressources[i].AddSeed(nbCost);
+                }
+            }
+        }
+    }
+
+    public bool RemoveResources()
+    {
+        if (TypeCost == "Seed")
+        {
+            for (int i = 0; i < ressources.Length; i++)
+            {
+                if (ressources[i] is SeedsGUI)
+                {
+                   return ressources[i].RemoveSeed(nbCost);
+                }
+            }
+        }
+
+        return true;
     }
 }
