@@ -8,7 +8,7 @@ public class CreationItemButton : ToucheableElement
 
     public override void ActionOnTouch()
     {
-        //GameManagement.instance.ObjToCreate = objectToCreate;
+        GameManagement.instance.ObjToCreate = objectToCreate;
     }
 
     public void PassObjectToCreate(GameObject obj)
