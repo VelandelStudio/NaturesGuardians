@@ -34,41 +34,37 @@ public class BuildSystem : ToucheableElement {
 
     public void TryPlaceNaturalElem(GameObject naturalElem)
     {
-        if (IsBuildable)
-        {
-            tileModifier.DisableDisplayer();
             Vector3 naturalPlace = new Vector3(transform.position.x, transform.position.y + naturalElem.transform.lossyScale.y /2.0f , transform.position.z);
-            NaturalElementInstance = Instantiate(naturalElement, naturalPlace, Quaternion.identity, transform);
+            NaturalElementInstance = Instantiate(naturalElem, naturalPlace, Quaternion.identity, transform);
             IsBuildable = false;
 
             Debug.Log(NaturalElementInstance.name + " is placed");
             Debug.Log(GameManagement.instance.NatureEvolution);
 
             GameManagement.instance.NatureEvolution.AddNatureElem(NaturalElementInstance);
-            return;
-        }
-
-        if(!isBuildable && !GameManagement.instance.InsideMenus)
-        {
-            tileModifier.DisplayTileModifier(this);
-        }
-
-        Debug.Log(transform.position.y);
     }
 
     public void RemoveNaturalElemt()
     {
-        GameManagement.instance.NatureEvolution.RemoveNatureElem(NaturalElementInstance);
-        Destroy(NaturalElementInstance);
-        isBuildable = true;
+        if (NaturalElementInstance)
+        {
+            GameManagement.instance.NatureEvolution.RemoveNatureElem(NaturalElementInstance);
+            Destroy(NaturalElementInstance);
+            isBuildable = true;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        tileModifier.DisableDisplayer();
     }
 
     public override void ActionOnTouch()
     {
-        if (GameManagement.instance.ObjToCreate)
+        if (IsBuildable || (!isBuildable && !GameManagement.instance.InsideMenus))
         {
-            naturalElement = GameManagement.instance.ObjToCreate;
-            TryPlaceNaturalElem(naturalElement);
+            tileModifier.DisplayTileModifier(this);
         }
     }
 }

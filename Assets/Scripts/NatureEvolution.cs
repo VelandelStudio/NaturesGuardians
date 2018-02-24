@@ -41,6 +41,9 @@ public class NatureEvolution : MonoBehaviour {
 
     public void RemoveNatureElem(GameObject nature)
     {
+        if (!nature)
+            return;
+
         if (nature.tag == "Tree")
         {
             trees--;
