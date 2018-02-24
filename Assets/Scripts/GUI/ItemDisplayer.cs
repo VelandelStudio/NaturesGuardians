@@ -12,6 +12,8 @@ public abstract class ItemDisplayer : ToucheableElement
     [SerializeField] protected GameObject GameObjectToInvoke;
 
     public bool IsActivated = false;
+    public string TypeCost;
+    public int nbCost;
 
     protected void Start()
     {
@@ -44,7 +46,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = true;
         chevron.SetActive(true);
         description.text = GetDescription();
-        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(GameObjectToInvoke);
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(GameObjectToInvoke,nbCost, TypeCost);
         descriptionPanel.SetActive(true);
     }
 
@@ -53,7 +55,7 @@ public abstract class ItemDisplayer : ToucheableElement
         IsActivated = false;
         chevron.SetActive(false);
         description.text = "";
-        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(null);
+        descriptionPanel.GetComponentInChildren<CreationItemButton>().PassObjectToCreate(null,0,"");
         descriptionPanel.SetActive(false);
     }
 
