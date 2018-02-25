@@ -8,6 +8,6 @@ public abstract class Ressources : MonoBehaviour {
     [SerializeField] protected Text numberOfElement;
     public int number;
 
-    public abstract void AddSeed(int i);
-    public abstract bool RemoveSeed(int i);
+    public abstract void AddElement(int i);
+    public abstract bool RemoveElement(int i);
 }

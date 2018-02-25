@@ -64,7 +64,7 @@ public class GameManagement : MonoBehaviour {
             {
                 if(ressources[i] is SeedsGUI)
                 {
-                    ressources[i].AddSeed(provider.ValueCost);
+                    ressources[i].AddElement(provider.ValueCost);
                 }
             }
         }
@@ -99,7 +99,7 @@ public class GameManagement : MonoBehaviour {
             {
                 if (ressources[i] is SeedsGUI)
                 {
-                   ressources[i].RemoveSeed(consummer.ValueCost);
+                   ressources[i].RemoveElement(consummer.ValueCost);
                 }
             }
         }
