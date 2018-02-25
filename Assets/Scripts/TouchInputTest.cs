@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TouchInputTest : MonoBehaviour {
 
@@ -14,6 +15,12 @@ public class TouchInputTest : MonoBehaviour {
             //Debug.Log("Hello penis touch");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
+
+            if (EventSystem.current.IsPointerOverGameObject())    // is the touch on the GUI
+            {
+                return;
+            }
+
             if (Physics.Raycast(ray, out hitInfo))
             {
                 if (hitInfo.collider.GetComponent<ToucheableElement>())

@@ -72,6 +72,11 @@ public class GameManagement : MonoBehaviour {
 
     public bool HasEnoughResources(RessourcesConsummer consummer)
     {
+        if (!consummer)
+        {
+            return true;
+        }
+
         if (consummer.TypeCost == "Seed")
         {
             for (int i = 0; i < ressources.Length; i++)

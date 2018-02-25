@@ -6,11 +6,14 @@ public class BuildSystem : ToucheableElement {
 
     public Material mat;
 
-    private GameObject naturalElement;
-    private GameObject naturalElementInstance;
     public GameObject NaturalElementInstance
     {
         get; private set;
+    }
+
+    public bool IsTileBase
+    {
+        get {return transform.parent.GetComponentInParent<BuildSystem>() == null;  }
     }
 
     private TileModifier tileModifier;
@@ -69,9 +72,12 @@ public class BuildSystem : ToucheableElement {
         }
         else
         {
-            transform.parent.GetComponentInParent<BuildSystem>().IsBuildable = true;
-            GameManagement.instance.GridCreator.RemoveNewBuildSystem(transform);
-            Destroy(gameObject);
+            if (!IsTileBase)
+            {
+                transform.parent.GetComponentInParent<BuildSystem>().IsBuildable = true;
+                GameManagement.instance.GridCreator.RemoveNewBuildSystem(transform);
+                Destroy(transform.parent.gameObject);
+            }
         }
 
         tileModifier.DisableDisplayer();
