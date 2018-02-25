@@ -94,9 +94,15 @@ public class BuildSystem : ToucheableElement {
             mrd.material = greenMat;
         }
 
-        if (altitude >= 5)
+        if (altitude > 4)
         {
-            mrd.material = snowMat;
+            MeshRenderer natureElemRend = NaturalElementInstance.GetComponentInChildren<MeshRenderer>();
+            natureElemRend.material = snowMat;
+            
+            if (!NaturalElementInstance.GetComponent<BuildSystem>() && altitude > 5)
+            {
+                mrd.material = snowMat;
+            }
         }
     }
 }
