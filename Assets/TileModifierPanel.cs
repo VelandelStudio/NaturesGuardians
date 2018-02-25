@@ -22,12 +22,12 @@ public class TileModifierPanel : MonoBehaviour {
     {
         workingObject.RemoveNaturalElemt();
         UpdateButtons();
+        DisablePanel();
     }
 
     public void Create()
     {
         workingObject.TryPlaceNaturalElem(GameManagement.instance.ObjToCreate);
-        DisablePanel();
         UpdateButtons();
     }
 
@@ -41,15 +41,30 @@ public class TileModifierPanel : MonoBehaviour {
     {
         workingObject = system;
         UpdateButtons();
-        gameObject.SetActive(true);
     }
 
     private void UpdateButtons()
     {
-        CreateButton.interactable = workingObject && (workingObject.IsBuildable && GameManagement.instance.ObjToCreate != null);
+        GameObject objToCreate = GameManagement.instance.ObjToCreate;
+        CreateButton.interactable = workingObject && (workingObject.IsBuildable && GameManagement.instance.ObjToCreate != null
+                                    && GameManagement.instance.HasEnoughResources(objToCreate.GetComponent<RessourcesConsummer>()));
         RotateRightButton.interactable = workingObject && (!workingObject.IsBuildable && workingObject.NaturalElementInstance);
         RotateLeftButton.interactable = workingObject && (!workingObject.IsBuildable && workingObject.NaturalElementInstance);
         RotateAroundButton.interactable = workingObject && (!workingObject.IsBuildable && workingObject.NaturalElementInstance);
-        RemoveButton.interactable = workingObject && (workingObject.IsBuildable || workingObject.NaturalElementInstance);
+        RemoveButton.interactable = workingObject && !workingObject.IsTileBase
+                                 || (workingObject.IsTileBase && !workingObject.IsBuildable);
+
+        if(!CreateButton.interactable &&
+           !RotateRightButton.interactable &&
+           !RotateLeftButton.interactable &&
+           !RotateAroundButton.interactable &&
+           !RemoveButton.interactable)
+        {
+            DisablePanel();
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 }
